@@ -7,10 +7,21 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('user', 'comments')->latest()->get();
-        return view('posts.index', compact('posts'));
+               // Get the selected category from the request
+               $category = $request->input('category');
+
+               // Query posts with optional category filtering
+               $posts = Post::with('user', 'comments')
+               ->when($category, function ($query, $category) {
+                   return $query->where('category', $category);
+               })
+               ->latest()
+               ->paginate(2);
+
+               // Pass the filtered posts to the view
+               return view('posts.index', compact('posts'));
     }
 
     public function create()
