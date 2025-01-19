@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex justify-content-between mb-3">
         <h1>Blog Posts</h1>
-        <a href="{{ route('posts.create') }}" class="btn btn-primary">Create Post</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-sm btn-primary">Create Post</a>
     </div>
 
     <!-- Category Filter -->

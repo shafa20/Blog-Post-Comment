@@ -14,7 +14,7 @@
             <p>{{ $comment->comment_text }}</p>
             <p><small>Commented by: {{ $comment->user->name }}</small></p>
             @can('update', $comment)
-            <a href="{{ route('comments.edit', $comment->id) }}">Edit</a>
+            <a class="btn btn-sm btn-primary" href="{{ route('comments.edit', $comment->id) }}">Edit</a>
             @endcan
             @if(auth()->id() === $post->user_id)
                 <form action="{{ route('comments.destroy', $comment) }}" method="POST" style="display:inline;">
