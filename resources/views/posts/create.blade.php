@@ -5,15 +5,15 @@
     <form action="{{ route('posts.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label">Title<span style="color: red;">*</span></label>
             <input type="text" name="title" class="form-control" id="title" required>
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
+            <label for="description" class="form-label">Description<span style="color: red;">*</span></label>
             <textarea name="description" class="form-control" id="description" rows="4" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
+            <label for="category" class="form-label">Category<span style="color: red;">*</span></label>
             <select name="category" id="category" class="form-select" required>
                 <option value="Technology">Technology</option>
                 <option value="Lifestyle">Lifestyle</option>

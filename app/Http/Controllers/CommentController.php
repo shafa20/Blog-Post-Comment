@@ -22,13 +22,13 @@ class CommentController extends Controller
 
     public function edit(Comment $comment)
     {
-        $this->authorize('update', $comment);
+       /// $this->authorize('update', $comment);
         return view('comments.edit', compact('comment'));
     }
 
     public function update(Request $request, Comment $comment)
     {
-        $this->authorize('update', $comment);
+       // $this->authorize('update', $comment);
 
         $request->validate(['comment_text' => 'required']);
         $comment->update(['comment_text' => $request->comment_text]);
@@ -38,7 +38,7 @@ class CommentController extends Controller
 
     public function destroy(Comment $comment)
     {
-        $this->authorize('delete', $comment);
+        //$this->authorize('delete', $comment);
         $comment->delete();
 
         return redirect()->route('posts.show', $comment->post)->with('success', 'Comment deleted successfully.');
