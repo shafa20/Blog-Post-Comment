@@ -5,9 +5,11 @@
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=blog-comment-system   (inside db folder is a databse name blog-comment-system)
+DB_DATABASE=blog-comment-system   
 DB_USERNAME=root
 DB_PASSWORD= your password
+
+(inside db folder is a databse name blog-comment-system all users password 12345678and username see from users table))
 
 4.php artisan key:generate
 5.php artisan migrate
