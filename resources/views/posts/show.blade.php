@@ -11,11 +11,19 @@
     <h4>Comments</h4>
     @foreach($post->comments as $comment)
         <div class="mb-3">
-            <p>{{ $comment->comment_text }}</p>
-            <p><small>Commented by: {{ $comment->user->name }}</small></p>
-            @can('update', $comment)
-            <a class="btn btn-sm btn-primary" href="{{ route('comments.edit', $comment->id) }}">Edit</a>
-            @endcan
+            <p>{{ $comment->comment_text }}  @can('update', $comment)
+                <a class="btn btn-sm btn-primary" href="{{ route('comments.edit', $comment->id) }}">Edit</a>
+                @endcan
+            </p>
+            <p>
+                <small>
+                    <strong>Commented by: {{ $comment->user->name }}</strong>
+                    at {{ $comment->created_at->format('M d, Y h:i A') }}
+                </small>
+            </p>
+
+
+
             @if(auth()->id() === $post->user_id)
                 <form action="{{ route('comments.destroy', $comment) }}" method="POST" style="display:inline;">
                     @csrf
